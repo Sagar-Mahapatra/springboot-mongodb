@@ -1,5 +1,6 @@
 package com.sagar.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -42,6 +43,11 @@ public class UserController {
 			throw new RuntimeException("User Not Found with Id:" + id);
 		}
 
+	}
+
+	@GetMapping("/")
+	public ResponseEntity<List<User>> getAlluser() {
+		return ResponseEntity.ok(repo.findAll());
 	}
 
 }
