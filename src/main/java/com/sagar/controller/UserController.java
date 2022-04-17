@@ -1,5 +1,7 @@
 package com.sagar.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +20,7 @@ public class UserController {
 	private UserRepository repo;
 
 	@PostMapping("/add")
-	public ResponseEntity<User> adduser(@RequestBody User user) {
+	public ResponseEntity<User> adduser(@RequestBody @Valid User user) {
 		User savedUser = repo.save(user);
 		return ResponseEntity.ok(savedUser);
 	}

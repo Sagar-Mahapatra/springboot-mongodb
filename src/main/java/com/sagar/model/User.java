@@ -22,10 +22,10 @@ public class User {
 	@Id
 	private String id;
 	@Field("name")
-	@NotBlank
+	@NotBlank(message = "name must not be empty")
 	private String username;
 	@Field("city")
-	@NotBlank
+	@NotBlank(message = "city is mandetory to provide")
 	private String city;
 	@Field("email")
 	@NotNull(message = "email must not be null")
